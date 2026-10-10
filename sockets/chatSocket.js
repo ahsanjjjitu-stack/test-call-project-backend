@@ -237,6 +237,7 @@ module.exports = (io) => {
 
 
         socket.on("answer_call", (data) => {
+            console.log("answer_call -> to:", data.to);
             io.to(data.to).emit("call_accepted", data.signal);
         });
 
@@ -246,6 +247,7 @@ module.exports = (io) => {
 
 
         socket.on("send_ice_candidate", (data) => {
+             console.log("ice candidate -> to:", data.to);
             io.to(data.to).emit("ice_candidate_received", data.candidate);
         });
 
